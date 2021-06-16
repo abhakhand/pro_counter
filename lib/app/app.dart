@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:pro_counter/app/l10n/l10n.dart';
+import 'package:pro_counter/presentation/core/theme/app_theme.dart';
 import 'package:pro_counter/presentation/counter/view/counter_view.dart';
 
 class App extends StatelessWidget {
@@ -9,10 +10,8 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        accentColor: const Color(0xFF13B9FF),
-        appBarTheme: const AppBarTheme(color: Color(0xFF13B9FF)),
-      ),
+      theme: AppTheme.light,
+      darkTheme: AppTheme.dark,
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
