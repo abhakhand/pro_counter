@@ -1,4 +1,4 @@
-package com.example.proCounter
+package com.bhakhand.proCounter
 
 import io.flutter.embedding.android.FlutterActivity
 

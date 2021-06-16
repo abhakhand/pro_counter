@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.proCounter">
+    package="com.bhakhand.proCounter">
    <application
         android:label="Pro Counter"
         android:icon="@mipmap/ic_launcher">
