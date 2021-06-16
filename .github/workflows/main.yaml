@@ -20,10 +20,15 @@ jobs:
         run: flutter analyze lib test
 
       - name: Run tests
-        run: flutter test --no-pub --coverage --test-randomize-ordering-seed random
+        run: |
+          flutter test --no-pub --coverage --test-randomize-ordering-seed random
+          pub global activate remove_from_coverage
+          pub global run remove_from_coverage:remove_from_coverage -f coverage/lcov.info -r '\.freezed\.dart$'
 
       - name: Check Code Coverage
         uses: VeryGoodOpenSource/very_good_coverage@v1.1.1
+        with:
+          exclude: "**/*.freezed.dart"
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
