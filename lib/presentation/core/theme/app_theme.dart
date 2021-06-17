@@ -6,11 +6,15 @@ class AppTheme {
 
   static ThemeData get light => ThemeData.light().copyWith(
         primaryColor: _primaryColorLight,
-        accentColor: _primaryColorLight,
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(
+          backgroundColor: _primaryColorLight,
+        ),
       );
 
   static ThemeData get dark => ThemeData.dark().copyWith(
         primaryColor: _primaryColorDark,
-        accentColor: _primaryColorDark,
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(
+          backgroundColor: _primaryColorDark,
+        ),
       );
 }
