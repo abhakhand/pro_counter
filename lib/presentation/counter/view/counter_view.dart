@@ -59,9 +59,9 @@ class CounterPage extends StatelessWidget {
               onPressed: () => context.read<CounterBloc>().add(
                     const CounterEvent.reset(),
                   ),
-              child: const Text(
-                'Reset',
-                style: TextStyle(color: Colors.grey),
+              child: Text(
+                l10n.counterResetButtonLabel,
+                style: const TextStyle(color: Colors.grey),
               ),
             ),
           ],

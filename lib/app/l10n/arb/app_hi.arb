@@ -1,0 +1,11 @@
+{
+    "@@locale": "hi",
+    "counterAppBarTitle": "काउंटर",
+    "@counterAppBarTitle": {
+        "description": "काउंटर पेज के ऐपबार में दिखाया गया टेक्स्ट"
+    },
+    "counterResetButtonLabel": "रीसेट",
+    "@counterResetButtonLabel": {
+        "description": "काउंटर पेज के रीसेट बटन में दिखाया गया टेक्स्ट"
+    }
+}

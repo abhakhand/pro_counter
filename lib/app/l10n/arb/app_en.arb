@@ -3,5 +3,9 @@
     "counterAppBarTitle": "Counter",
     "@counterAppBarTitle": {
         "description": "Text shown in the AppBar of the Counter Page"
+    },
+    "counterResetButtonLabel": "Reset",
+    "@counterResetButtonLabel": {
+        "description": "Text shown in the Reset Button of Counter Page"
     }
 }

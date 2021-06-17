@@ -3,5 +3,9 @@
     "counterAppBarTitle": "Contador",
     "@counterAppBarTitle": {
         "description": "Texto mostrado en la AppBar de la página del contador"
+    },
+    "counterResetButtonLabel": "Reiniciar",
+    "@counterResetButtonLabel": {
+        "description": "Texto mostrado en el botón de reinicio de la página del contador"
     }
 }
