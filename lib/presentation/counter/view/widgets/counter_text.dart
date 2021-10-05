@@ -1,3 +1,4 @@
+import 'package:animated_flip_counter/animated_flip_counter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pro_counter/presentation/counter/bloc/counter_bloc.dart';
@@ -11,9 +12,11 @@ class CounterText extends StatelessWidget {
       (CounterBloc bloc) => bloc.state.count,
     );
 
-    return Text(
-      '$count',
-      style: TextStyle(
+    
+
+    return AnimatedFlipCounter(
+      value: count.toDouble(),
+      textStyle: TextStyle(
         fontSize: 40,
         fontWeight: FontWeight.bold,
         color: counterColor(count),

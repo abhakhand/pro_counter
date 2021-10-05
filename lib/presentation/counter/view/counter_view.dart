@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pro_counter/app/l10n/l10n.dart';
-import 'package:pro_counter/presentation/core/widget_keys/widget_keys.dart';
+import 'package:pro_counter/presentation/core/helpers/widget_keys.dart';
 import 'package:pro_counter/presentation/counter/bloc/counter_bloc.dart';
 import 'package:pro_counter/presentation/counter/view/widgets/counter_text.dart';
 

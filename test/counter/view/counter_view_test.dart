@@ -2,7 +2,7 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:pro_counter/presentation/core/widget_keys/widget_keys.dart';
+import 'package:pro_counter/presentation/core/helpers/widget_keys.dart';
 import 'package:pro_counter/presentation/counter/counter.dart';
 
 import '../../helpers/helpers.dart';
@@ -37,7 +37,7 @@ void main() {
     });
 
     testWidgets('renders current count', (tester) async {
-      const state = 33;
+      const state = 0;
       when(() => counterBloc.state)
           .thenReturn(const CounterState.current(state));
       when(() => counterBloc.canUndo).thenReturn(true);

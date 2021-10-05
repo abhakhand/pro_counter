@@ -4,9 +4,10 @@ version: 1.0.0+1
 publish_to: none
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.13.0 <3.0.0"
 
 dependencies:
+  animated_flip_counter: ^0.1.2
   bloc: ^7.2.1
   flutter:
     sdk: flutter
