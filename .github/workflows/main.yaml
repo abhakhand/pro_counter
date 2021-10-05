@@ -8,7 +8,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: subosito/flutter-action@v1.5.0
+      - uses: subosito/flutter-action@v1.5.3
 
       - name: Install Dependencies
         run: flutter packages get
@@ -33,4 +33,4 @@ jobs:
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}  
+          token: ${{ secrets.CODECOV_TOKEN }}
