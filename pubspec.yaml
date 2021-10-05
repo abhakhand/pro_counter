@@ -7,26 +7,26 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
+  bloc: ^7.2.1
   flutter:
     sdk: flutter
+  flutter_bloc: ^7.3.0
   flutter_localizations:
     sdk: flutter
-  bloc: ^7.0.0
-  flutter_bloc: ^7.0.0
-  freezed_annotation: ^0.14.2
-  hydrated_bloc: ^7.0.1
+  freezed_annotation: ^0.14.3
+  hydrated_bloc: ^7.1.0
   intl: ^0.17.0
-  path_provider: ^2.0.2
-  replay_bloc: ^0.0.2
+  path_provider: ^2.0.5
+  replay_bloc: ^0.1.0
 
 dev_dependencies:
+  bloc_test: ^8.2.0
+  build_runner: ^2.1.4
   flutter_test:
     sdk: flutter
-  bloc_test: ^8.0.0
-  build_runner: ^2.0.4
-  freezed: ^0.14.2
-  mocktail: ^0.1.0
-  very_good_analysis: ^2.1.0
+  freezed: ^0.14.5
+  mocktail: ^0.1.4
+  very_good_analysis: ^2.3.0
 
 flutter:
   uses-material-design: true

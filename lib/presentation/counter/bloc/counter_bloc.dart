@@ -25,8 +25,9 @@ class CounterBloc extends HydratedBloc<CounterEvent, CounterState>
 
   @override
   CounterState fromJson(Map<String, dynamic> json) =>
-      CounterState.initial(json['counter']);
+      CounterState.initial(json['counter'] as int);
 
   @override
-  Map<String, dynamic> toJson(CounterState state) => {'counter': state.count};
+  Map<String, dynamic> toJson(CounterState state) =>
+      <String, dynamic>{'counter': state.count};
 }
