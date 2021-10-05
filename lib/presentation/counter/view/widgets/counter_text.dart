@@ -12,8 +12,6 @@ class CounterText extends StatelessWidget {
       (CounterBloc bloc) => bloc.state.count,
     );
 
-    
-
     return AnimatedFlipCounter(
       value: count.toDouble(),
       textStyle: TextStyle(
