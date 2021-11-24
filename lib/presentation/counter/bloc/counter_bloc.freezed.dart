@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'counter_bloc.dart';
 
@@ -42,6 +43,13 @@ mixin _$CounterEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? increment,
+    TResult Function()? decrement,
+    TResult Function()? reset,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? increment,
     TResult Function()? decrement,
@@ -54,6 +62,13 @@ mixin _$CounterEvent {
     required TResult Function(_Increment value) increment,
     required TResult Function(_Decrement value) decrement,
     required TResult Function(_Reset value) reset,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Increment value)? increment,
+    TResult Function(_Decrement value)? decrement,
+    TResult Function(_Reset value)? reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -111,7 +126,8 @@ class _$_Increment implements _Increment {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Increment);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Increment);
   }
 
   @override
@@ -125,6 +141,16 @@ class _$_Increment implements _Increment {
     required TResult Function() reset,
   }) {
     return increment();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? increment,
+    TResult Function()? decrement,
+    TResult Function()? reset,
+  }) {
+    return increment?.call();
   }
 
   @override
@@ -149,6 +175,16 @@ class _$_Increment implements _Increment {
     required TResult Function(_Reset value) reset,
   }) {
     return increment(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Increment value)? increment,
+    TResult Function(_Decrement value)? decrement,
+    TResult Function(_Reset value)? reset,
+  }) {
+    return increment?.call(this);
   }
 
   @override
@@ -199,7 +235,8 @@ class _$_Decrement implements _Decrement {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Decrement);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Decrement);
   }
 
   @override
@@ -213,6 +250,16 @@ class _$_Decrement implements _Decrement {
     required TResult Function() reset,
   }) {
     return decrement();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? increment,
+    TResult Function()? decrement,
+    TResult Function()? reset,
+  }) {
+    return decrement?.call();
   }
 
   @override
@@ -237,6 +284,16 @@ class _$_Decrement implements _Decrement {
     required TResult Function(_Reset value) reset,
   }) {
     return decrement(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Increment value)? increment,
+    TResult Function(_Decrement value)? decrement,
+    TResult Function(_Reset value)? reset,
+  }) {
+    return decrement?.call(this);
   }
 
   @override
@@ -286,7 +343,8 @@ class _$_Reset implements _Reset {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Reset);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Reset);
   }
 
   @override
@@ -300,6 +358,16 @@ class _$_Reset implements _Reset {
     required TResult Function() reset,
   }) {
     return reset();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? increment,
+    TResult Function()? decrement,
+    TResult Function()? reset,
+  }) {
+    return reset?.call();
   }
 
   @override
@@ -328,6 +396,16 @@ class _$_Reset implements _Reset {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Increment value)? increment,
+    TResult Function(_Decrement value)? decrement,
+    TResult Function(_Reset value)? reset,
+  }) {
+    return reset?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Increment value)? increment,
     TResult Function(_Decrement value)? decrement,
@@ -349,14 +427,8 @@ abstract class _Reset implements CounterEvent {
 class _$CounterStateTearOff {
   const _$CounterStateTearOff();
 
-  _Initial initial([int count = 0]) {
+  _Initial value(int count) {
     return _Initial(
-      count,
-    );
-  }
-
-  _Current current(int count) {
-    return _Current(
       count,
     );
   }
@@ -371,27 +443,33 @@ mixin _$CounterState {
 
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int count) initial,
-    required TResult Function(int count) current,
+    required TResult Function(int count) value,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(int count)? value,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int count)? initial,
-    TResult Function(int count)? current,
+    TResult Function(int count)? value,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Current value) current,
+    required TResult Function(_Initial value) value,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? value,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Current value)? current,
+    TResult Function(_Initial value)? value,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -463,28 +541,26 @@ class __$InitialCopyWithImpl<$Res> extends _$CounterStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Initial implements _Initial {
-  const _$_Initial([this.count = 0]);
+  const _$_Initial(this.count);
 
-  @JsonKey(defaultValue: 0)
   @override
   final int count;
 
   @override
   String toString() {
-    return 'CounterState.initial(count: $count)';
+    return 'CounterState.value(count: $count)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Initial &&
-            (identical(other.count, count) ||
-                const DeepCollectionEquality().equals(other.count, count)));
+        (other.runtimeType == runtimeType &&
+            other is _Initial &&
+            (identical(other.count, count) || other.count == count));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(count);
+  int get hashCode => Object.hash(runtimeType, count);
 
   @JsonKey(ignore: true)
   @override
@@ -494,21 +570,27 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int count) initial,
-    required TResult Function(int count) current,
+    required TResult Function(int count) value,
   }) {
-    return initial(count);
+    return value(count);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(int count)? value,
+  }) {
+    return value?.call(count);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int count)? initial,
-    TResult Function(int count)? current,
+    TResult Function(int count)? value,
     required TResult orElse(),
   }) {
-    if (initial != null) {
-      return initial(count);
+    if (value != null) {
+      return value(count);
     }
     return orElse();
   }
@@ -516,149 +598,39 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Current value) current,
+    required TResult Function(_Initial value) value,
   }) {
-    return initial(this);
+    return value(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? value,
+  }) {
+    return value?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Current value)? current,
+    TResult Function(_Initial value)? value,
     required TResult orElse(),
   }) {
-    if (initial != null) {
-      return initial(this);
+    if (value != null) {
+      return value(this);
     }
     return orElse();
   }
 }
 
 abstract class _Initial implements CounterState {
-  const factory _Initial([int count]) = _$_Initial;
+  const factory _Initial(int count) = _$_Initial;
 
   @override
-  int get count => throw _privateConstructorUsedError;
+  int get count;
   @override
   @JsonKey(ignore: true)
   _$InitialCopyWith<_Initial> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$CurrentCopyWith<$Res> implements $CounterStateCopyWith<$Res> {
-  factory _$CurrentCopyWith(_Current value, $Res Function(_Current) then) =
-      __$CurrentCopyWithImpl<$Res>;
-  @override
-  $Res call({int count});
-}
-
-/// @nodoc
-class __$CurrentCopyWithImpl<$Res> extends _$CounterStateCopyWithImpl<$Res>
-    implements _$CurrentCopyWith<$Res> {
-  __$CurrentCopyWithImpl(_Current _value, $Res Function(_Current) _then)
-      : super(_value, (v) => _then(v as _Current));
-
-  @override
-  _Current get _value => super._value as _Current;
-
-  @override
-  $Res call({
-    Object? count = freezed,
-  }) {
-    return _then(_Current(
-      count == freezed
-          ? _value.count
-          : count // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_Current implements _Current {
-  const _$_Current(this.count);
-
-  @override
-  final int count;
-
-  @override
-  String toString() {
-    return 'CounterState.current(count: $count)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _Current &&
-            (identical(other.count, count) ||
-                const DeepCollectionEquality().equals(other.count, count)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(count);
-
-  @JsonKey(ignore: true)
-  @override
-  _$CurrentCopyWith<_Current> get copyWith =>
-      __$CurrentCopyWithImpl<_Current>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int count) initial,
-    required TResult Function(int count) current,
-  }) {
-    return current(count);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int count)? initial,
-    TResult Function(int count)? current,
-    required TResult orElse(),
-  }) {
-    if (current != null) {
-      return current(count);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Current value) current,
-  }) {
-    return current(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Current value)? current,
-    required TResult orElse(),
-  }) {
-    if (current != null) {
-      return current(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Current implements CounterState {
-  const factory _Current(int count) = _$_Current;
-
-  @override
-  int get count => throw _privateConstructorUsedError;
-  @override
-  @JsonKey(ignore: true)
-  _$CurrentCopyWith<_Current> get copyWith =>
       throw _privateConstructorUsedError;
 }
