@@ -1,9 +1,12 @@
 import 'package:bloc_test/bloc_test.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:pro_counter/presentation/core/helpers/widget_keys.dart';
-import 'package:pro_counter/presentation/counter/counter.dart';
+import 'package:pro_counter/src/application/counter/counter_bloc.dart';
+import 'package:pro_counter/src/application/theme/theme_cubit.dart';
+import 'package:pro_counter/src/presentation/core/helpers/widget_keys.dart';
+import 'package:pro_counter/src/presentation/counter/views/counter_view.dart';
 
 import '../../helpers/helpers.dart';
 
@@ -14,13 +17,17 @@ class FakeCounterEvent extends Fake implements CounterEvent {}
 
 class FakeCounterState extends Fake implements CounterState {}
 
+class MockThemeCubit extends MockCubit<ThemeMode> implements ThemeCubit {}
+
 void main() {
   setUpAll(
     () {
       registerFallbackValue(FakeCounterEvent());
       registerFallbackValue(FakeCounterState());
+      registerFallbackValue(ThemeMode);
     },
   );
+
   group('CounterView', () {
     testWidgets('renders CounterPage', (tester) async {
       await mockHydratedStorage(() async {
@@ -32,9 +39,11 @@ void main() {
 
   group('CounterPage', () {
     late CounterBloc counterBloc;
+    late ThemeCubit themeCubit;
 
     setUp(() {
       counterBloc = MockCounterBloc();
+      themeCubit = MockThemeCubit();
     });
 
     testWidgets('renders current count', (tester) async {
@@ -151,6 +160,55 @@ void main() {
           );
           await tester.tap(find.byKey(WidgetKeys.counterRedoButtonKey));
           verify(() => counterBloc.redo()).called(1);
+        },
+      );
+    });
+
+    testWidgets('renders current theme', (tester) async {
+      const counterState = 0;
+      const themeState = ThemeMode.dark;
+      when(() => counterBloc.state)
+          .thenReturn(const CounterState.value(counterState));
+      when(() => counterBloc.canUndo).thenReturn(true);
+      when(() => counterBloc.canRedo).thenReturn(true);
+      when(() => themeCubit.state).thenReturn(themeState);
+      await mockHydratedStorage(
+        () async {
+          await tester.pumpApp(
+            MultiBlocProvider(
+              providers: [
+                BlocProvider.value(value: counterBloc),
+                BlocProvider.value(value: themeCubit),
+              ],
+              child: const CounterPage(),
+            ),
+          );
+        },
+      );
+
+      expect(find.byKey(WidgetKeys.themeButtonKey), findsOneWidget);
+    });
+
+    testWidgets('calls switchTheme when theme button is tapped',
+        (tester) async {
+      when(() => counterBloc.state).thenReturn(const CounterState.value(0));
+      when(() => counterBloc.canUndo).thenReturn(true);
+      when(() => counterBloc.canRedo).thenReturn(true);
+      when(() => themeCubit.state).thenReturn(ThemeMode.dark);
+      when(() => themeCubit.switchThemeMode(ThemeMode.light)).thenReturn(null);
+      await mockHydratedStorage(
+        () async {
+          await tester.pumpApp(
+            MultiBlocProvider(
+              providers: [
+                BlocProvider.value(value: counterBloc),
+                BlocProvider.value(value: themeCubit),
+              ],
+              child: const CounterPage(),
+            ),
+          );
+          await tester.tap(find.byKey(WidgetKeys.themeButtonKey));
+          verify(() => themeCubit.switchThemeMode(ThemeMode.light)).called(1);
         },
       );
     });

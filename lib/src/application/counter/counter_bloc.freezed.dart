@@ -556,11 +556,12 @@ class _$_Initial implements _Initial {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Initial &&
-            (identical(other.count, count) || other.count == count));
+            const DeepCollectionEquality().equals(other.count, count));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, count);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(count));
 
   @JsonKey(ignore: true)
   @override

@@ -1,6 +1,6 @@
 {
     "@@locale": "es",
-    "counterAppBarTitle": "Contador",
+    "counterAppBarTitle": "Contador profesional",
     "@counterAppBarTitle": {
         "description": "Texto mostrado en la AppBar de la página del contador"
     },

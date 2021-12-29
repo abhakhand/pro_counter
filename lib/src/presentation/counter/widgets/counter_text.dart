@@ -1,7 +1,7 @@
 import 'package:animated_flip_counter/animated_flip_counter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pro_counter/presentation/counter/bloc/counter_bloc.dart';
+import 'package:pro_counter/src/application/counter/counter_bloc.dart';
 
 class CounterText extends StatelessWidget {
   const CounterText({Key? key}) : super(key: key);

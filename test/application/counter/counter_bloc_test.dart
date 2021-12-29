@@ -1,6 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pro_counter/presentation/counter/bloc/counter_bloc.dart';
+import 'package:pro_counter/src/application/counter/counter_bloc.dart';
 
 import '../../helpers/helpers.dart';
 
@@ -35,21 +35,21 @@ void main() {
 
     blocTest<CounterBloc, CounterState>(
       'emits [1] when increment is called',
-      build: () => mockHydratedStorage(() => CounterBloc()),
+      build: () => mockHydratedStorage(CounterBloc.new),
       act: (bloc) => bloc.add(const CounterEvent.increment()),
       expect: () => [equals(const CounterState.value(1))],
     );
 
     blocTest<CounterBloc, CounterState>(
       'emits [-1] when decrement is called',
-      build: () => mockHydratedStorage(() => CounterBloc()),
+      build: () => mockHydratedStorage(CounterBloc.new),
       act: (bloc) => bloc.add(const CounterEvent.decrement()),
       expect: () => [equals(const CounterState.value(-1))],
     );
 
     blocTest<CounterBloc, CounterState>(
       'emits [0] when reset is called',
-      build: () => mockHydratedStorage(() => CounterBloc()),
+      build: () => mockHydratedStorage(CounterBloc.new),
       act: (bloc) => bloc.add(const CounterEvent.reset()),
       expect: () => [equals(const CounterState.value(0))],
     );
