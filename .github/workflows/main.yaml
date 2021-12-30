@@ -26,7 +26,7 @@ jobs:
           pub global run remove_from_coverage:remove_from_coverage -f coverage/lcov.info -r '\.freezed\.dart$'
 
       - name: Check Code Coverage
-        uses: VeryGoodOpenSource/very_good_coverage@v1.1.1
+        uses: VeryGoodOpenSource/very_good_coverage@v1.2.0
         with:
           exclude: "**/*.freezed.dart"
 

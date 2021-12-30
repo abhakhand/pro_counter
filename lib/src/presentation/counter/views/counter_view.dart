@@ -25,6 +25,7 @@ class CounterPage extends StatelessWidget {
     final l10n = context.l10n;
 
     return AnimatedTheme(
+      key: WidgetKeys.themeWidgetKey,
       data: Theme.of(context),
       child: Scaffold(
         appBar: AppBar(

@@ -7,6 +7,7 @@ import 'package:pro_counter/src/application/counter/counter_bloc.dart';
 import 'package:pro_counter/src/application/theme/theme_cubit.dart';
 import 'package:pro_counter/src/presentation/core/helpers/widget_keys.dart';
 import 'package:pro_counter/src/presentation/counter/views/counter_view.dart';
+import 'package:pro_counter/src/presentation/counter/widgets/widgets.dart';
 
 import '../../helpers/helpers.dart';
 
@@ -44,6 +45,94 @@ void main() {
     setUp(() {
       counterBloc = MockCounterBloc();
       themeCubit = MockThemeCubit();
+    });
+
+    testWidgets('renders ThemeSwitcherButton', (tester) async {
+      const counterState = 0;
+      const themeState = ThemeMode.dark;
+      when(() => counterBloc.state)
+          .thenReturn(const CounterState.value(counterState));
+      when(() => counterBloc.canUndo).thenReturn(true);
+      when(() => counterBloc.canRedo).thenReturn(true);
+      when(() => themeCubit.state).thenReturn(themeState);
+      await mockHydratedStorage(() async {
+        await tester.pumpApp(
+          MultiBlocProvider(
+            providers: [
+              BlocProvider.value(value: counterBloc),
+              BlocProvider.value(value: themeCubit),
+            ],
+            child: const CounterPage(),
+          ),
+        );
+      });
+      expect(find.byType(ThemeSwitcherButton), findsOneWidget);
+    });
+
+    testWidgets('renders UndoButton', (tester) async {
+      const counterState = 0;
+      const themeState = ThemeMode.dark;
+      when(() => counterBloc.state)
+          .thenReturn(const CounterState.value(counterState));
+      when(() => counterBloc.canUndo).thenReturn(true);
+      when(() => counterBloc.canRedo).thenReturn(true);
+      when(() => themeCubit.state).thenReturn(themeState);
+      await mockHydratedStorage(() async {
+        await tester.pumpApp(
+          MultiBlocProvider(
+            providers: [
+              BlocProvider.value(value: counterBloc),
+              BlocProvider.value(value: themeCubit),
+            ],
+            child: const CounterPage(),
+          ),
+        );
+      });
+      expect(find.byType(UndoButton), findsOneWidget);
+    });
+
+    testWidgets('renders RedoButton', (tester) async {
+      const counterState = 0;
+      const themeState = ThemeMode.dark;
+      when(() => counterBloc.state)
+          .thenReturn(const CounterState.value(counterState));
+      when(() => counterBloc.canUndo).thenReturn(true);
+      when(() => counterBloc.canRedo).thenReturn(true);
+      when(() => themeCubit.state).thenReturn(themeState);
+      await mockHydratedStorage(() async {
+        await tester.pumpApp(
+          MultiBlocProvider(
+            providers: [
+              BlocProvider.value(value: counterBloc),
+              BlocProvider.value(value: themeCubit),
+            ],
+            child: const CounterPage(),
+          ),
+        );
+      });
+      expect(find.byType(RedoButton), findsOneWidget);
+    });
+
+    testWidgets('renders ResetButton', (tester) async {
+      const counterState = 0;
+      const themeState = ThemeMode.dark;
+      when(() => counterBloc.state)
+          .thenReturn(const CounterState.value(counterState));
+      when(() => counterBloc.canUndo).thenReturn(true);
+      when(() => counterBloc.canRedo).thenReturn(true);
+      when(() => themeCubit.state).thenReturn(themeState);
+      await mockHydratedStorage(() async {
+        await tester.pumpApp(
+          MultiBlocProvider(
+            providers: [
+              BlocProvider.value(value: counterBloc),
+              BlocProvider.value(value: themeCubit),
+            ],
+            child: const CounterPage(),
+          ),
+        );
+      });
+      expect(find.byType(ResetButton), findsOneWidget);
     });
 
     testWidgets('renders current count', (tester) async {
@@ -186,7 +275,7 @@ void main() {
         },
       );
 
-      expect(find.byKey(WidgetKeys.themeButtonKey), findsOneWidget);
+      expect(find.byKey(WidgetKeys.themeWidgetKey), findsOneWidget);
     });
 
     testWidgets('calls switchTheme when theme button is tapped',

@@ -9,4 +9,5 @@ class WidgetKeys {
   static const counterUndoButtonKey = Key('counter_undo_button_key');
   static const counterRedoButtonKey = Key('counter_redo_button_key');
   static const themeButtonKey = Key('theme_button_key');
+  static const themeWidgetKey = Key('theme_widget_key');
 }
