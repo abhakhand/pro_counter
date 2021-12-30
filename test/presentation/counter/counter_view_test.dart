@@ -278,7 +278,7 @@ void main() {
       expect(find.byKey(WidgetKeys.themeWidgetKey), findsOneWidget);
     });
 
-    testWidgets('calls switchTheme when theme button is tapped',
+    testWidgets('calls switchTheme(Light) when theme button is tapped',
         (tester) async {
       when(() => counterBloc.state).thenReturn(const CounterState.value(0));
       when(() => counterBloc.canUndo).thenReturn(true);
@@ -298,6 +298,30 @@ void main() {
           );
           await tester.tap(find.byKey(WidgetKeys.themeButtonKey));
           verify(() => themeCubit.switchThemeMode(ThemeMode.light)).called(1);
+        },
+      );
+    });
+
+    testWidgets('calls switchTheme(Dark) when theme button is tapped',
+        (tester) async {
+      when(() => counterBloc.state).thenReturn(const CounterState.value(0));
+      when(() => counterBloc.canUndo).thenReturn(true);
+      when(() => counterBloc.canRedo).thenReturn(true);
+      when(() => themeCubit.state).thenReturn(ThemeMode.light);
+      when(() => themeCubit.switchThemeMode(ThemeMode.dark)).thenReturn(null);
+      await mockHydratedStorage(
+        () async {
+          await tester.pumpApp(
+            MultiBlocProvider(
+              providers: [
+                BlocProvider.value(value: counterBloc),
+                BlocProvider.value(value: themeCubit),
+              ],
+              child: const CounterPage(),
+            ),
+          );
+          await tester.tap(find.byKey(WidgetKeys.themeButtonKey));
+          verify(() => themeCubit.switchThemeMode(ThemeMode.dark)).called(1);
         },
       );
     });

@@ -33,10 +33,17 @@ void main() {
     });
 
     blocTest<ThemeCubit, ThemeMode>(
-      'emits [Dark/Light Mode] when update is called.',
+      'emits [Light Mode] when update is called.',
       build: () => mockHydratedStorage(ThemeCubit.new),
       act: (cubit) => cubit.switchThemeMode(ThemeMode.dark),
       expect: () => [equals(ThemeMode.dark)],
+    );
+
+    blocTest<ThemeCubit, ThemeMode>(
+      'emits [Dark Mode] when update is called.',
+      build: () => mockHydratedStorage(ThemeCubit.new),
+      act: (cubit) => cubit.switchThemeMode(ThemeMode.light),
+      expect: () => [equals(ThemeMode.light)],
     );
   });
 }
