@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 class WidgetKeys {
-  WidgetKeys._();
-
   static const counterIncrementButtonKey = Key('counter_increment_button_key');
   static const counterDecrementButtonKey = Key('counter_decrement_button_key');
   static const counterResetButtonKey = Key('counter_reset_button_key');
