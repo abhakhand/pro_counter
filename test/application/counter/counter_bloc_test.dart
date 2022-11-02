@@ -36,22 +36,22 @@ void main() {
     blocTest<CounterBloc, CounterState>(
       'emits [1] when increment is called',
       build: () => mockHydratedStorage(CounterBloc.new),
-      act: (bloc) => bloc.add(const CounterEvent.increment()),
-      expect: () => [equals(const CounterState.value(1))],
+      act: (bloc) => bloc..add(const CounterEvent.increment()),
+      expect: () => <CounterState>[const CounterState.value(1)],
     );
 
     blocTest<CounterBloc, CounterState>(
       'emits [-1] when decrement is called',
       build: () => mockHydratedStorage(CounterBloc.new),
-      act: (bloc) => bloc.add(const CounterEvent.decrement()),
-      expect: () => [equals(const CounterState.value(-1))],
+      act: (bloc) => bloc..add(const CounterEvent.decrement()),
+      expect: () => <CounterState>[const CounterState.value(-1)],
     );
 
     blocTest<CounterBloc, CounterState>(
       'emits [0] when reset is called',
       build: () => mockHydratedStorage(CounterBloc.new),
-      act: (bloc) => bloc.add(const CounterEvent.reset()),
-      expect: () => [equals(const CounterState.value(0))],
+      act: (bloc) => bloc..add(const CounterEvent.reset()),
+      expect: () => <CounterState>[const CounterState.value(0)],
     );
 
     group('canUndo', () {
